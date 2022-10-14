@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/19 21:20:37 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/10/14 22:34:10 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 23:27:00 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	main(int argc, char **argv, char **envp)
 
 	if (argc == 1 && argv)
 	{
-		//global_sig = 0;
 		if (check_fd())
 			return (msg_ret("fd problem()", FAILURE));
 		ms = ft_calloc(1, sizeof(t_ms));

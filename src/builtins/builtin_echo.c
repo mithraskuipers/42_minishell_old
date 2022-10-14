@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/22 12:44:57 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/09/22 15:11:07 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 23:24:43 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,11 @@ static int	has_flag_present(char *string)
 	return (1);
 }
 
-void		builtin_echo(t_cmd *cmd_object, int fd)
+void		builtin_echo(t_cmd *cmd_object, int fd, int i)
 {
-	size_t	i;
 	int		flag_present;
 
-	i = 1;
+	global_error = EXIT_SUCCESS;
 	flag_present = 0;
 	if (cmd_object->args[1])
 	{

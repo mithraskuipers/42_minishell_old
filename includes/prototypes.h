@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 13:35:21 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/10/14 22:35:29 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 23:23:32 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int		clean_env(t_env **env);
 void	builtin_env(t_ms *ms, int fd);
 int		builtin_pwd(int fd);
 void	builtin_unset(t_ms *ms, char **args);
-void	builtin_echo(t_cmd *cmd_object, int fd);
+void	builtin_echo(t_cmd *cmd_object, int fd, int i);
 int		builtin_export(t_ms *ms, t_cmd *cmd_object, int fd);
 int	builtin_cd(t_cmd *cmd_object, t_ms *ms);
 int	builtin_cd2(char **args, t_ms *ms); // just for testing, couldnt get builtin_cd to work for struct objects

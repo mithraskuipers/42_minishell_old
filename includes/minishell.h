@@ -6,12 +6,13 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/19 21:20:32 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/09/14 13:40:33 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 23:30:06 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
+extern int	global_error;
 
 /* HEADERS */
 # include "structs.h"
@@ -36,6 +37,5 @@
 # define FORK_PARENT 1
 
 /* GLOBAL VARIABLE */
-/* int		global_sig; */
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/22 12:17:54 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/09/22 15:34:41 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 23:23:09 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Your shell must implement the following builtins:
 int	exe_builtin(t_cmd *cmd_object, t_ms *ms)
 {
 	if (ft_strcmp(cmd_object->args[0], "echo") == 0)
-		builtin_echo(cmd_object, STDOUT_FILENO);
+		builtin_echo(cmd_object, STDOUT_FILENO, 1);
 	else if (ft_strcmp(cmd_object->args[0], "env") == 0)
 		builtin_env(ms, 1); // fd = 1
 	else if (ft_strcmp(cmd_object->args[0], "pwd") == 0)

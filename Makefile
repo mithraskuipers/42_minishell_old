@@ -6,7 +6,7 @@
 #    By: mikuiper <mikuiper@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/11 21:25:39 by mikuiper      #+#    #+#                  #
-#    Updated: 2022/10/14 22:33:27 by mikuiper      ########   odam.nl          #
+#    Updated: 2022/10/14 23:13:32 by mikuiper      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,7 +83,7 @@ INC_LIBS =		-L $(INC_LIB_FT) $(LIB_INC_RDLINE)
 
 all: lib_ft $(NAME) 
 
-$(NAME): lib_ft make_obj_dirs $(FULL_OBJS)
+$(NAME): lib_ft make_obj_dirs $(FULL_OBJS) $(FULL_HDRS)
 	@$(COMP) -g $(INC_HDRS) $(FULL_OBJS) $(INC_LIBS) -o $(NAME)
 	@echo "$(GREEN)[minishell] - Compiled minishell!$(NOCOLOR)"
 

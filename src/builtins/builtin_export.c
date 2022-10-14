@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/22 15:47:24 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/09/28 16:21:12 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 23:24:05 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,7 +225,8 @@ int	builtin_export_with_args(t_ms *ms, t_cmd *cmd_object)
 
 int	builtin_export(t_ms *ms, t_cmd *cmd_object, int fd)
 {
-	// check whether this needs to be == 0 or 1
+	//global_error = EXIT_SUCCESS;
+	// TODO check whether this needs to be == 0 or 1
 	if (ft_get_n_strings(cmd_object->args) == 0)
 	{
 		builtin_export_without_args(ms, fd);

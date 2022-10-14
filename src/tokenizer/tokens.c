@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/18 13:32:47 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/10/14 22:39:50 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 22:59:38 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,3 +83,5 @@ t_exec_element	*tokenizer(t_ms *shell)
 	}
 	return (exec_list);
 }
+
+
