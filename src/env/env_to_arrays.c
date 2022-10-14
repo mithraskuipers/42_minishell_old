@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/22 16:22:08 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/09/28 16:01:17 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 21:44:20 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**env_to_arrays(t_env **env)
 	env_element = *env;
 	if (!envp)
 	{
-		msg_err("env_to_arrays()", FAILURE);
+		msg_ret("env_to_arrays()", FAILURE);
 		return (NULL);
 	}
 	while (iter < len)
@@ -54,7 +54,7 @@ char	**env_vals_to_arrays(t_env **env)
 	env_element = *env;
 	if (!envp)
 	{
-		msg_err("env_to_arrays()", FAILURE);
+		msg_ret("env_to_arrays()", FAILURE);
 		return (NULL);
 	}
 	while (iter < env_len(env))
@@ -79,7 +79,7 @@ char	**env_entries_to_arrays(t_env **env)
 	env_element = *env;
 	if (!envp)
 	{
-		msg_err("env_to_arrays()", FAILURE);
+		msg_ret("env_to_arrays()", FAILURE);
 		return (NULL);
 	}
 	while (iter < env_len(env))

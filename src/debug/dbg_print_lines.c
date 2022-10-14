@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   init_ms_struct.c                                          :+:    :+:            */
+/*   dbg_print_lines.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/19 16:15:46 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/09/19 16:16:07 by mikuiper      ########   odam.nl         */
+/*   Created: 2022/10/14 21:48:58 by mikuiper      #+#    #+#                 */
+/*   Updated: 2022/10/14 21:49:34 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+# include "../includes/minishell.h"
 
-int	init_ms_struct(t_ms *ms)
+void	dbg_print_lines(char **lines)
 {
-	ms->line = NULL;
-	return (0);
+	int	iter;
+
+	iter = 0;
+	while (lines[iter])
+	{
+		printf("%d: %s\n", iter, lines[iter]);
+		iter++;
+	}
 }

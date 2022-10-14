@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   line_check_tools.c                                 :+:    :+:            */
+/*   line_parser_checks.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/19 14:55:32 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/09/21 11:14:01 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 22:31:50 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ int line_check_quotations(char *line)
 		line++;
 	}
 	if (quote || squote)
-	{
-		printf("Error. Your line has an unclosed quotation mark.\n");
 		return (1);
-	}
 	return (0);
 }
 
@@ -44,10 +41,7 @@ int	line_check_first_char(char *line)
 	while (*line == ' ')
 		line++;
 	if (*line == '|')
-	{
-		printf("Error. Found forbidden token at start of line.\n");
 		return (1);
-	}
 	return (0);
 }
 
@@ -66,20 +60,17 @@ int	line_get_last_char(char *line)
 int line_check_last_char(char *line, char *charset)
 {
 	if (*line && ft_strchr(charset, line_get_last_char(line)))
-	{
-		printf("Error. Found forbidden token at end of line.\n");
 		return (1);
-	}
 	return (0);
 }
 
-int	line_check_syntax(char *line, char *charset)
+int	line_checker(char *line, char *charset)
 {
 	if (line_check_first_char(line))
-		return (1);
+		return(msg_ret("Error. Forbidden token at start of line.\n", 1));
 	if (line_check_last_char(line, charset))
-		return (1);
+		return(msg_ret("Error. Forbidden token at end of line.\n", 1));
 	if (line_check_quotations(line))
-		return (1);
+		return (msg_ret("Error. Line has unclosed quotation mark.\n", 1));
 	return (0);
 }

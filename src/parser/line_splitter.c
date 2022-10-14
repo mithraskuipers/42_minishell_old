@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 11:14:12 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/09/22 14:17:46 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 21:44:20 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ size_t	line_get_line_len(char *line, size_t i)
 	return (len);
 }
 
-char	**line_split_line_helper(char **lines, char *line)
+char	**line_splitter_helper(char **lines, char *line)
 {
 	size_t	i;
 	size_t	j;
@@ -80,7 +80,7 @@ char	**line_split_line_helper(char **lines, char *line)
 		lines[i] = malloc(sizeof(char) * (line_get_line_len(line, start) + 1));
 		if (!lines[i])
 		{
-			msg_err("line_split_line_helper()", FAILURE);
+			msg_ret("line_splitter_helper()", FAILURE);
 			return (0);
 		}
 		while (line[start + j] && (j < line_get_line_len(line, start)))
@@ -96,7 +96,7 @@ char	**line_split_line_helper(char **lines, char *line)
 	return (lines);
 }
 
-char	**line_trim_lines(char **lines)
+char	**lines_trimmer(char **lines)
 {
 	size_t	i;
 	char	*tmp;
@@ -112,25 +112,25 @@ char	**line_trim_lines(char **lines)
 	return (lines);
 }
 
-char	**line_split_line(char *line)
+char	**line_splitter(char *line)
 {
 	char	**lines;
 
 	if (!line)
 	{
-		msg_err("line_split_line()", FAILURE);
+		msg_ret("line_splitter()", FAILURE);
 		return (NULL);
 	}
 	lines = malloc ((line_get_n_words(line) + 1) * sizeof(char *));
 	if (!lines)
 	{
-		msg_err("line_split_line()", FAILURE);
+		msg_ret("line_splitter()", FAILURE);
 		return (NULL);
 	}
-	lines = line_split_line_helper(lines, line);
+	lines = line_splitter_helper(lines, line);
 	if (!lines)
 	{
-		msg_err("line_split_line()", FAILURE);
+		msg_ret("line_splitter()", FAILURE);
 		return (NULL);
 	}
 	return (lines);

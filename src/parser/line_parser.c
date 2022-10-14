@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/30 11:47:20 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/09/22 18:41:55 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 22:31:50 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,11 @@
 
 int	line_parser(t_ms *ms)
 {
-
-	// Check line syntax
-	if (line_check_syntax(ms->line, "<>|"))
+	if (line_checker(ms->line, "<>|"))
 		return (1);
-	// Expand line
 	ms->line = line_expander(ms->line, ms->env);
-	// Split line
-	ms->lines = line_split_line(ms->line);
-	// Trim lines
-	ms->lines = line_trim_lines(ms->lines);
+	ms->lines = line_splitter(ms->line);
+	ms->lines = lines_trimmer(ms->lines);
 	return (0);
 }
 
@@ -47,4 +42,4 @@ int	line_parser(t_ms *ms)
 /* Demonstrate token blks */
 //t_list	*token_blks_list;
 //token_blks_list = make_token_blks_list(&ms->tokenlist);
-//debug_print_token_blks_list(token_blks_list);
+//dbg_print_token_blks_list(token_blks_list);

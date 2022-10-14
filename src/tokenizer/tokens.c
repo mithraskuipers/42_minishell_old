@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/18 13:32:47 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/09/20 22:00:21 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 22:39:50 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	is_command(char *line, t_env **env)
 
 	split_line = ft_split(line, ' ');
 	if (!split_line)
-		return (msg_err("is_command()", FAILURE));
+		return (msg_ret("is_command()", FAILURE));
 	path = get_path(split_line[0], env);
 	free_ptr_array(split_line);
 	if (!path)
@@ -52,6 +52,7 @@ int	check_type(char *line, t_env **env)
 		return (tkn_bltin);
 	else if (is_command(line, env) == TRUE)
 		return (tkn_cmd);
+	return (-1); // ADDED because otherwise end of nonvoid function. -1 because enum starts at 0
 }
 
 t_exec_element	*tokenizer(t_ms *shell)
@@ -64,20 +65,16 @@ t_exec_element	*tokenizer(t_ms *shell)
 	iter = 1;
 	exec_list = malloc(sizeof(t_exec_element));
 	if (!exec_list)
-	{
-		msg_err("tokenizer()", FAILURE);
-		return (NULL);
-	}
+		return(msg_null("tokenizer()\n"));
 	exec_list->type = check_type(shell->lines[0], shell->env);
 	prev = exec_list;
 	while (shell->lines[iter])
 	{
 		curr = malloc(sizeof(t_exec_element));
-		if (!curr)
+		if (!(curr))
 		{
-			msg_err("tokenizer()", FAILURE);
-			free_exec_list(exec_list);
-			return (NULL);
+			//free_exec_list(exec_list); 			// NOT EXIST?
+			return (msg_null("tokenizer()"));
 		}
 		curr->type = check_type(shell->lines[1], shell->env);
 		prev->next = curr;

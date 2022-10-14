@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   debug_env.c                                        :+:    :+:            */
+/*   dbg_env.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-int	debug_print_env(t_ms *ms)
+int	dbg_print_env(t_ms *ms)
 {
 	t_env *cur;
 	cur = *ms->env;
@@ -25,7 +25,7 @@ int	debug_print_env(t_ms *ms)
 	return (1);
 }
 
-int	debug_print_env_keys(t_ms *ms)
+int	dbg_print_env_keys(t_ms *ms)
 {
 	t_env *cur;
 	cur = *ms->env;
@@ -38,7 +38,7 @@ int	debug_print_env_keys(t_ms *ms)
 	return (1);
 }
 
-int	debug_print_env_idx(t_ms *ms)
+int	dbg_print_env_idx(t_ms *ms)
 {
 	t_env *cur;
 	cur = *ms->env;

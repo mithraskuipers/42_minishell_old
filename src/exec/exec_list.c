@@ -11,7 +11,7 @@ t_exec_element	*new_exec_element(void)
 	new = malloc(sizeof(t_exec_element));
 	if (!new)
 	{
-		msg_err("new_exec_element()", FAILURE);
+		msg_ret("new_exec_element()", FAILURE);
 		return (NULL);
 	}
 	new->type = -1;
@@ -51,7 +51,7 @@ t_exec_element *assign_exec_element(t_exec_element *element, int type, t_env **e
 		element->value = cmd_constructor(*input, env);
 		if (!element->value)
 		{
-			msg_err("assign_exec_element()", FAILURE);
+			msg_ret("assign_exec_element()", FAILURE);
 			return (NULL);
 		}
 	}
@@ -61,7 +61,7 @@ t_exec_element *assign_exec_element(t_exec_element *element, int type, t_env **e
 	/* 	if (!element->value) */
 	/* 	{ */
 	/* 		printf("input[0]: %s input[1]: %s\n", input[0], input[1]); */
-	/* 		msg_err("assign_exec_element()", FAILURE); */
+	/* 		msg_ret("assign_exec_element()", FAILURE); */
 	/* 		return (NULL); */
 	/* 	} */
 	/* } */
@@ -94,7 +94,7 @@ t_exec_element	*exec_list_generator(t_exec_element *line_blks, int n_blocks, t_e
 	head = new_exec_element();
 	if (!head)
 	{
-		msg_err("token_list_generator()", FAILURE);
+		msg_ret("token_list_generator()", FAILURE);
 		return (NULL);
 	}
 	curr_element = head;
@@ -106,7 +106,7 @@ t_exec_element	*exec_list_generator(t_exec_element *line_blks, int n_blocks, t_e
 		curr_element->next = new_exec_element();
 		if (!curr_element->next)
 		{
-			msg_err("exec_list_generator()", FAILURE);
+			msg_ret("exec_list_generator()", FAILURE);
 			dealloc_exec_list(head);
 		}
 		curr_element = curr_element->next;

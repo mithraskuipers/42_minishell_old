@@ -6,7 +6,7 @@
 #    By: mikuiper <mikuiper@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/11 21:25:39 by mikuiper      #+#    #+#                  #
-#    Updated: 2022/10/08 12:10:06 by mikuiper      ########   odam.nl          #
+#    Updated: 2022/10/14 22:33:27 by mikuiper      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,22 +39,24 @@ NAMES_SRCS =	main.c \
 				builtins/builtin_export.c \
 				builtins/builtin_cd.c \
 				dealloc/clean_env.c \
-				debug/debug_env.c \
+				debug/dbg_env.c \
+				debug/dbg_print_lines.c \
 				cosmetic/splash.c \
 				error/error.c \
 				cosmetic/colors.c \
 				checks/check_fd.c \
 				tokenizer/tokens_tools.c \
 				parser/line_parser.c \
-				parser/line_split_into_lines.c \
+				parser/line_splitter.c \
 				parser/line_parser_checks.c \
-				init/init_ms_struct.c \
 				init/init_env_struct.c \
 				env/env_delete_var.c \
 				env/env_to_arrays.c \
 				env/env_add_var.c \
 				env/env_clone_env.c \
-				env/env_tools.c
+				env/env_tools.c \
+				tokenizer/tokens_tools.c \
+				tokenizer/tokens.c
 
 # HEADER NAMES
 NAMES_HDRS =	minishell.h

@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 13:35:21 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/10/08 18:49:10 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/14 22:35:29 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	clear_screen(void);
 
 /* INIT.C */
 int		init_env_struct(t_ms *ms, char **envp);
-int		init_ms_struct(t_ms *ms);
 int		init_start(void);
 
 /* MAIN.C */
@@ -58,7 +57,8 @@ int		env_del_var_helper(t_env **head, char *key);
 int		env_del_var(t_env **env, char *key);
 
 /* ERROR.C */
-int		msg_err(char *s, int ret);
+int		msg_ret(char *s, int ret);
+void	*msg_null(char *s);
 
 /* EXEC.C */
 int		execute_command(t_cmd *cmd);
@@ -73,16 +73,16 @@ int		line_parser(t_ms *ms);
 /* LINE_SPLIT_INTO_LINES.C */
 size_t	line_get_n_words(char *line);
 size_t	line_get_line_len(char *line, size_t i);
-char	**line_split_line_helper(char **lines, char *line);
-char	**line_trim_lines(char **lines);
-char	**line_split_line(char *line);
+char	**line_splitter_helper(char **lines, char *line);
+char	**lines_trimmer(char **lines);
+char	**line_splitter(char *line);
 
 /* LINE_CHECK_TOOLS */
 int 	line_check_quotations(char *line);
 int		line_check_first_char(char *line);
 int		line_get_last_char(char *line);
 int 	line_check_last_char(char *line, char *charset);
-int		line_check_syntax(char *line, char *charset);
+int		line_checker(char *line, char *charset);
 
 /* CLEAN.C */
 int		clean_tokenlist(t_list **tokenlist);
@@ -122,19 +122,24 @@ void		cmd_deallocator(t_cmd *cmd);
 char	*get_path(char *prog_n, t_env **env);
 int		free_ptr_array(char *ptr[]);
 
-/* DEBUG_ENV.C */
-int		debug_print_env(t_ms *ms);
-int		debug_print_env_idx(t_ms *ms);
-int		debug_print_env_keys(t_ms *ms);
 
-/* DEBUG_TOKENLIST.C */
-int		debug_print_tokens_val(t_list **tokenlist);
-int		debug_print_tokens(t_list **tokenlist);
-int		debug_print_token_blks_list(t_list *token_blks_list);
+// DEBUG SECTION
+void	dbg_print_lines(char **lines);
+int		dbg_print_env(t_ms *ms);
+int		dbg_print_env_idx(t_ms *ms);
+int		dbg_print_env_keys(t_ms *ms);
+int		dbg_print_tokens_val(t_list **tokenlist);
+int		dbg_print_tokens(t_list **tokenlist);
+int		dbg_print_token_blks_list(t_list *token_blks_list);
 
-/* MISC */
-/* CHECK_FD.C */
-int		check_fd(void);
+// TOKENS
+t_exec_element	*tokenizer(t_ms *shell);
+
+/* CHECKS.C */
+// ERROR
+int			check_fd(void);
+//int			malloc_check(void *mem_loc);
+
 
 /* COLORS.C */
 void	color_red();
