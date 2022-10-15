@@ -9,7 +9,7 @@ int	execute_command(t_cmd *cmd)
 	dup2(cmd->o_fd, STDOUT_FILENO);
 	if (execve(cmd->path, cmd->args, cmd->env) == -1)
 	{
-		msg_ret("execute_command()", FAILURE);
+		msg_ret_int("execute_command()", FAILURE);
 		cmd_deallocator(cmd);
 		return (FAILURE);
 	}

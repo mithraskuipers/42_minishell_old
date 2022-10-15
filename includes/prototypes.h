@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 13:35:21 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/10/14 23:23:32 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/15 19:17:43 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int		env_del_var_helper(t_env **head, char *key);
 int		env_del_var(t_env **env, char *key);
 
 /* ERROR.C */
-int		msg_ret(char *s, int ret);
-void	*msg_null(char *s);
+int		msg_ret_int(char *s, int ret);
+void	*msg_ret_null(char *s);
 
 /* EXEC.C */
 int		execute_command(t_cmd *cmd);

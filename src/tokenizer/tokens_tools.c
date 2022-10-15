@@ -39,15 +39,15 @@
 /* 		current = (t_token *)tokenlist->content; */
 /* 		next = (t_token *)tokenlist->next->content; */
 /* 		if (current->type == tkn_read && next->type != tkn_str) */
-/* 				return(msg_ret("< was not followed by string\n", 1)); */
+/* 				return(msg_ret_int("< was not followed by string\n", 1)); */
 /* 		if (current->type == tkn_write && next->type != tkn_str) */
-/* 				return(msg_ret("> was not followed by string\n", 1)); */
+/* 				return(msg_ret_int("> was not followed by string\n", 1)); */
 /* 		if (current->type == tkn_pipe && next->type == tkn_pipe) */
-/* 				return(msg_ret("| was followed by |\n", 1)); */
+/* 				return(msg_ret_int("| was followed by |\n", 1)); */
 /* 		if (current->type == tkn_heredoc && next->type != tkn_str) */
-/* 				return(msg_ret("<< was not followed by string\n", 1)); */
+/* 				return(msg_ret_int("<< was not followed by string\n", 1)); */
 /* 		if (current->type == tkn_append && next->type != tkn_str) */
-/* 				return(msg_ret(">> was not followed by string\n", 1)); */
+/* 				return(msg_ret_int(">> was not followed by string\n", 1)); */
 /* 		tokenlist = tokenlist->next; */
 /* 	} */
 /* 	return (0); */

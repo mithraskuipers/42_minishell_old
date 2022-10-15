@@ -6,19 +6,19 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/29 18:24:05 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/10/14 22:35:11 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/15 19:17:43 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-int			msg_ret(char *s, int ret)
+int			msg_ret_int(char *s, int ret)
 {
 	printf("%s", s);
 	return (ret);
 }
 
-void	*msg_null(char *s)
+void	*msg_ret_null(char *s)
 {
 	printf("%s", s);
 	return (NULL);

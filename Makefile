@@ -6,12 +6,12 @@
 #    By: mikuiper <mikuiper@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/11 21:25:39 by mikuiper      #+#    #+#                  #
-#    Updated: 2022/10/14 23:13:32 by mikuiper      ########   odam.nl          #
+#    Updated: 2022/10/15 20:11:03 by mikuiper      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 			minishell
-COMP =			gcc
+COMP =			clang
 FLAGS_COMP =	-Wall -Wextra -Werror
 FLAGS_LEAKS =	-g3 -fsanitize=address
 

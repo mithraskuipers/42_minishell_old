@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/19 14:55:32 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/10/14 22:31:50 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/15 19:17:33 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ int line_check_last_char(char *line, char *charset)
 int	line_checker(char *line, char *charset)
 {
 	if (line_check_first_char(line))
-		return(msg_ret("Error. Forbidden token at start of line.\n", 1));
+		return(msg_ret_int("Error. Forbidden token at start of line.\n", 1));
 	if (line_check_last_char(line, charset))
-		return(msg_ret("Error. Forbidden token at end of line.\n", 1));
+		return(msg_ret_int("Error. Forbidden token at end of line.\n", 1));
 	if (line_check_quotations(line))
-		return (msg_ret("Error. Line has unclosed quotation mark.\n", 1));
+		return (msg_ret_int("Error. Line has unclosed quotation mark.\n", 1));
 	return (0);
 }

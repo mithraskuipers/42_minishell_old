@@ -23,7 +23,7 @@ t_cmd	*cmd_constructor(char *prog_n_args, t_env **env)
 	cmd = malloc(sizeof(t_cmd));
 	if (!cmd)
 	{
-		msg_ret("cmd_constructor()", FAILURE);
+		msg_ret_int("cmd_constructor()", FAILURE);
 		return (NULL);
 	}
 	cmd->i_fd = STDIN_FILENO;
@@ -32,20 +32,20 @@ t_cmd	*cmd_constructor(char *prog_n_args, t_env **env)
 	if (!cmd->args)
 	{
 		cmd_deallocator(cmd);
-		msg_ret("cmd_constructor()", FAILURE);
+		msg_ret_int("cmd_constructor()", FAILURE);
 		return (NULL);
 	}
 	cmd->env = env_to_arrays(env);
 	if (!cmd->env)
 	{
 		cmd_deallocator(cmd);
-		msg_ret("cmd_constructor()", FAILURE);
+		msg_ret_int("cmd_constructor()", FAILURE);
 		return (NULL);
 	}
 	cmd->path = get_path(prog_n_args, env);
 	if (!cmd->path)
 	{
-		msg_ret(cmd->args[0], FAILURE);
+		msg_ret_int(cmd->args[0], FAILURE);
 		cmd_deallocator(cmd);
 		return (NULL);
 	}

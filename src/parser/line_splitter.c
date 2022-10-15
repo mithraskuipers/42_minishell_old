@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   line_split_into_lines.c                            :+:    :+:            */
+/*   line_splitter.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/21 11:14:12 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/10/14 21:44:20 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/15 19:17:33 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	**line_splitter_helper(char **lines, char *line)
 		lines[i] = malloc(sizeof(char) * (line_get_line_len(line, start) + 1));
 		if (!lines[i])
 		{
-			msg_ret("line_splitter_helper()", FAILURE);
+			msg_ret_int("line_splitter_helper()", FAILURE);
 			return (0);
 		}
 		while (line[start + j] && (j < line_get_line_len(line, start)))
@@ -118,19 +118,19 @@ char	**line_splitter(char *line)
 
 	if (!line)
 	{
-		msg_ret("line_splitter()", FAILURE);
+		msg_ret_int("line_splitter()", FAILURE);
 		return (NULL);
 	}
 	lines = malloc ((line_get_n_words(line) + 1) * sizeof(char *));
 	if (!lines)
 	{
-		msg_ret("line_splitter()", FAILURE);
+		msg_ret_int("line_splitter()", FAILURE);
 		return (NULL);
 	}
 	lines = line_splitter_helper(lines, line);
 	if (!lines)
 	{
-		msg_ret("line_splitter()", FAILURE);
+		msg_ret_int("line_splitter()", FAILURE);
 		return (NULL);
 	}
 	return (lines);

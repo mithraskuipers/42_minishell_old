@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/07 21:59:24 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/10/14 23:20:00 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/15 19:17:33 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ exec_list_generator() -> new_exec_element() + assign_exec_element() -> cmd_const
 int	builtin_cd(t_cmd *cmd_object, t_ms *ms)
 {
 	if (ft_get_n_strings(cmd_object->args) > 2)
-		msg_ret("Error\n", 1);
+		msg_ret_int("Error\n", 1);
 	if (ft_strncmp(cmd_object->args[0], "cd", ft_strlen("cd")) != 0)
-		msg_ret("Error\n", 1);
+		msg_ret_int("Error\n", 1);
 	if (!cmd_object->args[1])
 	{
 		if (chdir(env_get_val(ms->env, "HOME")))
-			msg_ret("Error\n", 1);
+			msg_ret_int("Error\n", 1);
 		return (0);
 	}
 	if (chdir(cmd_object->args[1]))
