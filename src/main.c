@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/19 21:20:37 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/10/16 10:26:59 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/16 11:37:01 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(int argc, char **argv, char **envp)
 		splash();
 		ms->line = readline("λ :: > ");
 		line_parser(ms);
-		ms->cmds2 = ft_calloc(ft_get_n_strings(ms->lines), sizeof(t_cmds2));
-		if (!ms->cmds2)
+		ms->cmds_new = ft_calloc(ft_get_n_strings(ms->lines), sizeof(t_cmds_new));
+		if (!ms->cmds_new)
 		{
 			// if fails, cleanup everything
 			return (1);
@@ -50,12 +50,13 @@ int	main(int argc, char **argv, char **envp)
 		size_t i = 0;
 		while (i < ft_get_n_strings(ms->lines))
 		{
-			ms->cmds2[i].cmd = NULL;
-			ms->cmds2[i].path = NULL;
-			ms->cmds2[i].fd_in = 0;
-			ms->cmds2[i].fd_out = 1;
+			ms->cmds_new[i].cmd = NULL;
+			ms->cmds_new[i].path = NULL;
+			ms->cmds_new[i].fd_in = 0;
+			ms->cmds_new[i].fd_out = 1;
 			i++;
 		}
+		
 		//tokenizer(ms); // segfault sometimes
 		// TOKENIZER
 		// TOKENIZER CLEANUP (QUOTATIONS)
