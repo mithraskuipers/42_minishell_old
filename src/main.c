@@ -41,22 +41,9 @@ int	main(int argc, char **argv, char **envp)
 		splash();
 		ms->line = readline("λ :: > ");
 		line_parser(ms);
-		ms->cmds_new = ft_calloc(ft_get_n_strings(ms->lines), sizeof(t_cmds_new));
-		if (!ms->cmds_new)
-		{
-			// if fails, cleanup everything
-			return (1);
-		}
-		size_t i = 0;
-		while (i < ft_get_n_strings(ms->lines))
-		{
-			ms->cmds_new[i].cmd = NULL;
-			ms->cmds_new[i].path = NULL;
-			ms->cmds_new[i].fd_in = 0;
-			ms->cmds_new[i].fd_out = 1;
-			i++;
-		}
-		
+
+//tokens_check_syntax(ms->tokenlist);
+
 		//tokenizer(ms); // segfault sometimes
 		// TOKENIZER
 		// TOKENIZER CLEANUP (QUOTATIONS)

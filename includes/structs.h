@@ -15,36 +15,6 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-
-
-
-
-
-
-
-typedef struct s_cmds_new
-{
-	char		**cmd;
-	char		*path;
-	int			fd_in;
-	int			fd_out;
-	int			pipefd[2];
-}				t_cmds_new;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 typedef struct	s_env
 {
 	char	*key;
@@ -58,7 +28,7 @@ typedef struct s_ms
 	char	*line;
 	t_env	**env;
 	char	**lines;
-	t_cmds_new	*cmds_new;
+	t_list	*tokenlist;
 }	t_ms;
 
 typedef enum	e_token_type
