@@ -6,7 +6,7 @@
 /*   By: mikuiper <mikuiper@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/19 21:20:32 by mikuiper      #+#    #+#                 */
-/*   Updated: 2022/10/14 23:32:09 by mikuiper      ########   odam.nl         */
+/*   Updated: 2022/10/16 10:27:36 by mikuiper      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,36 @@
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+
+
+
+
+
+
+
+typedef struct s_cmds2
+{
+	char		**cmd;
+	char		*path;
+	int			fd_in;
+	int			fd_out;
+	int			pipefd[2];
+}				t_cmds2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 typedef struct	s_env
 {
@@ -28,6 +58,7 @@ typedef struct s_ms
 	char	*line;
 	t_env	**env;
 	char	**lines;
+	t_cmds2	*cmds2;
 }	t_ms;
 
 typedef enum	e_token_type
