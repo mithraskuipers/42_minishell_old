@@ -45,7 +45,6 @@ NAMES_SRCS =	main.c \
 				error/error.c \
 				cosmetic/colors.c \
 				checks/check_fd.c \
-				tokenizer/tokens_tools.c \
 				parser/line_parser.c \
 				parser/line_splitter.c \
 				parser/line_parser_checks.c \
@@ -56,7 +55,8 @@ NAMES_SRCS =	main.c \
 				env/env_clone_env.c \
 				env/env_tools.c \
 				tokenizer/tokens_tools.c \
-				tokenizer/tokens.c
+				tokenizer/tokens.c \
+				debug/debug_tokenlist.c
 
 # HEADER NAMES
 NAMES_HDRS =	minishell.h

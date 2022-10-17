@@ -34,10 +34,10 @@ int	line_parser(t_ms *ms)
 
 
 /* Add labels to tokens */
-//tokens_add_types(ms->tokenlist);
+//add_types_tokens(ms->tokenlist);
 
 /* Check for valid token syntax */
-//tokens_check_syntax(ms->tokenlist);
+//check_token_syntax(ms->tokenlist);
 
 /* Demonstrate token blks */
 //t_list	*token_blks_list;

@@ -42,12 +42,22 @@ int	main(int argc, char **argv, char **envp)
 		ms->line = readline("λ :: > ");
 		line_parser(ms);
 
-//tokens_check_syntax(ms->tokenlist);
+		tokens_populate_tokenlist(ms->lines, &ms->tokenlist);
 
-		//tokenizer(ms); // segfault sometimes
-		// TOKENIZER
-		// TOKENIZER CLEANUP (QUOTATIONS)
-	
+		/* IMPORTANT: Please keep the following 4 lines of code for now. First elem of list is NULL. */
+		// t_list *head;
+		// head = ms->tokenlist;
+		// ms->tokenlist = ms->tokenlist->next;
+		// free (head);
+
+		/* Add labels to tokens */
+		tokens_add_types(ms->tokenlist);
+
+		/* Check for valid token syntax */
+		tokens_check_syntax(ms->tokenlist);
+
+		debug_print_tokens(&ms->tokenlist);
+
 		//dbg_print_lines(ms->lines);
 		//clean_tokenlist(&ms->tokenlist);
 		//clean_env(ms->env);

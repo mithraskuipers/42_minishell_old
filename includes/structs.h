@@ -43,6 +43,14 @@ typedef enum	e_token_type
 	tkn_append
 }	t_token_type;
 
+
+typedef struct s_token
+{
+	t_token_type	type;
+	char			*val;
+}	t_token;
+
+
 /*
  * NOTE:
  *                     +-----+

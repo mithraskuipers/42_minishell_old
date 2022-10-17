@@ -102,8 +102,8 @@ int	builtin_cd2(char **args, t_ms *ms); // just for testing, couldnt get builtin
 int		exe_builtin(t_cmd *element, t_ms *ms);
 
 /* tokens_populate_tokenlist.C */
-int		tokens_check_syntax(t_list *tokenlist);
-void	tokens_add_types(t_list *tokenlist);
+int		check_token_syntax(t_list *tokenlist);
+void	add_types_tokens(t_list *tokenlist);
 
 /* MAKE_TOKENLIST */
 int		tokens_make_and_add(char *token, t_list **tokens);
@@ -128,12 +128,15 @@ void	dbg_print_lines(char **lines);
 int		dbg_print_env(t_ms *ms);
 int		dbg_print_env_idx(t_ms *ms);
 int		dbg_print_env_keys(t_ms *ms);
-int		dbg_print_tokens_val(t_list **tokenlist);
-int		dbg_print_tokens(t_list **tokenlist);
+int		debug_print_tokens_val(t_list **tokenlist);
+int		debug_print_tokens(t_list **tokenlist);
 int		dbg_print_token_blks_list(t_list *token_blks_list);
 
 // TOKENS
-t_exec_element	*tokenizer(t_ms *shell);
+void	tokens_add_types(t_list *tokenlist);
+int		tokens_check_syntax(t_list *tokenlist);
+
+// t_exec_element	*tokenizer(t_ms *shell);
 
 /* CHECKS.C */
 // ERROR
